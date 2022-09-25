@@ -1,0 +1,8 @@
+# Ignore project-specific output directories
+.gradle/
+.externalToolBuilders/
+.settings/
+build/
+bin/
+.project
+.classpath

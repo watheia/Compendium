@@ -1,0 +1,18 @@
+plugins {
+    id 'base'
+	id 'project-report'
+	id 'eclipse'
+	id 'distribution'
+}
+
+subprojects.each { project ->
+	tasks.assemble.dependsOn("${project.path}:assemble")
+	tasks.clean.dependsOn("${project.path}:clean")
+	tasks.check.dependsOn("${project.path}:check")
+}
+
+assemble {
+	dependsOn tasks.projectReport
+}
+
+defaultTasks 'assemble'
